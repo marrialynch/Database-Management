@@ -1,0 +1,29 @@
+<h2>Participations</h2>
+<div class="row g-3">
+
+  <% for (let athlete_lst_p of participations) { %>
+    <div class="col-4"></div>
+        <div class="card p-1">
+            <% for (let obj of athlete_lst_p) { %>
+        
+        <!-- <div class="card p-1"> -->
+        <% if (obj.name != null) %> { %>
+            <h5 class="card-title"><%= obj.name %></h5>
+        <% } %>
+        <div class="card-text">
+          <div><%= obj.value%> Sex</div>
+          <div><%= ref.participations[0].age %> Age</div>
+          <div><%= ref.participations[0].height %> Height</div>
+          <div><%= ref.participations[0].weight %> Weight</div>
+          <div>
+            <a class="btn btn-outline-primary" href="<%= '/athletes/' + ref.athleteId + '/edit' %>">Edit</a>
+            <a class="btn btn-outline-danger" href="<%= '/athletes/' + ref.athleteId + '/delete' %>">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <% } %>
+  <% } %>
+
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <%- include("../templates/head.ejs") %>
+  <body>
+
+    <%- include("../templates/navBar.ejs") %>
+
+    <div class="container">
+      <h1>Participations</h1>
+
+
+      <% if (msg) { %>
+        <div class="alert alert-primary">
+          <%= msg %>
+        </div>
+      <% } %>
+
+
+      <div class="row">
+        <div class="col-8">
+          <% if (games) { %>
+            <%- include("../components/participationSearchBar.ejs", { query }) %>
+            <%- include("../components/gamesList.ejs", { games, currentPage, lastPage }) %>
+          <% } %>
+
+          <% if (participations) { %>
+            <%- include("../components/participationSearchBar.ejs", { query }) %>
+            <%- include("../components/participationsList.ejs", { query }) %>
+          <% } %>
+          
+        </div>
+      </div>
+
+      
+
+    </div>
+
+    <%- include("../templates/footer.ejs") %>
+  </body>
+</html>
