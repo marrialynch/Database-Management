@@ -632,6 +632,7 @@ async function updateNameInParticipations(old_name, new_name) {
         }
       });
     console.log("update name in mongo: " + JSON.stringify(r_mongo));
+    return r_rds;
   } catch (error) {
     console.log(`caught - ${error}`);
     throw error;
@@ -682,7 +683,7 @@ async function deleteParticipations(name, game_year, game_season) {
       }
     );
     console.log("result for removing in mongodb: " + JSON.stringify(r_mongo));
-
+    return r_rds;
   } catch (error) {
     console.log(`caught - ${error}`);
     throw error;

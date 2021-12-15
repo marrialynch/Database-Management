@@ -1,29 +1,44 @@
 <h2>Participations</h2>
 <div class="row g-3">
-
   <% for (let athlete_lst_p of participations) { %>
-    <div class="col-4"></div>
-        <div class="card p-1">
-            <% for (let obj of athlete_lst_p) { %>
-        
-        <!-- <div class="card p-1"> -->
-        <% if (obj.name != null) %> { %>
-            <h5 class="card-title"><%= obj.name %></h5>
+    <div class="col-4">
+      <div class="container">
+        <% for (let athlete_p of athlete_lst_p) { %>
+          <form action=" <%= '/participations/' + athlete_p.name + '/edit' %>" method="POST">
+            <label for="name">Name</label>
+            <div class="input-group">
+          <% if (athlete_p.name != null) %> { %>
+            <input type="text" class="form-control" id="name" value= athlete_p.name readonly>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-pencil" onclick=editName()></span>
+            </div>
+            </div>   
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+            <% } %> else { %>
+              <div class="col-3">
+                <div class= "row g-3">
+                  <div><%= athlete_p.value %> </div>
+                  <a class="btn btn-outline-danger" href="<%= '/participations/' + athlete_p.name + '/delete' %>">Delete</a>
+                </div>
+              </div>
+            <% } %>
+            <form action="/createParticipation" method="POST">
+              <div>
+                <label class="form-label">
+                  Game Year:
+                  <input class="form-control" type="text" name="year" />
+                </label>
+                <label class="form-label">
+                  Game Season:
+                  <input class="form-control" type="text" name="season" />
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Add</button>
+            </form>
         <% } %>
-        <div class="card-text">
-          <div><%= obj.value%> Sex</div>
-          <div><%= ref.participations[0].age %> Age</div>
-          <div><%= ref.participations[0].height %> Height</div>
-          <div><%= ref.participations[0].weight %> Weight</div>
-          <div>
-            <a class="btn btn-outline-primary" href="<%= '/athletes/' + ref.athleteId + '/edit' %>">Edit</a>
-            <a class="btn btn-outline-danger" href="<%= '/athletes/' + ref.athleteId + '/delete' %>">Delete</a>
-          </div>
-        </div>
       </div>
     </div>
-    
-    <% } %>
-  <% } %>
-
+  
+  <% } %>   
 </div>
