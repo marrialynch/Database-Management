@@ -77,3 +77,12 @@ The added part for project 3 is a new page supporting CRD of participations of a
 Here is a screenshot of the participation page.
 ![Participation Home Page](./Screenshots/Participation_Home_Page.png)
 
+Here are screenshots of the router that conencts the backend and the frontend.
+![Participation_Home](./Screenshots/Participation_Home.png)
+![Participation_Create](./Screenshots/Creat_Participation.png)
+![Participation_Delete](./Screenshots/Delete_Participation.png)
+![Participation_Edit](./Screenshots/Edit_Participation.png)
+![Participation_Read](./Screenshots/Read_Participation.png)
+
+Here are screenshots of the added module backend part.
+![Participation_Backend](./Screenshots/BackEnd.png)
